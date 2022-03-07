@@ -1,0 +1,49 @@
+/*Criado por Camila Silva em 23/02/2022*/
+/*Css de Project.js*/
+
+.project_details{
+    padding: 2em;
+}
+
+.project_details h1,
+.project_details h2,
+.project_details p{
+    margin-bottom: 0.5em;
+}
+
+.project_details h1{
+    background-color: #222;
+    color: rgb(240, 100, 8);
+    padding: 1em;
+}
+
+.project_details span{
+    font-weight: bold;
+}
+
+.details_container,
+.service_form_container{
+    border-bottom: 1px solid #a74c17;
+    margin-bottom: 1.2em;
+    padding-bottom: 1.2em;
+    flex-wrap: wrap;
+}
+
+.btn{
+    background-color: #222;
+    color: #fff;
+    padding: 1em 1em;
+    transition: 0.5s;
+    cursor: pointer;
+    font-size: 0.90em;
+    font-weight: bold;
+}
+
+.btn:hover{
+    color: #fb3;
+}
+
+.project_info{
+    width: 100%;
+}
+

@@ -1,0 +1,16 @@
+/*css criado por Camila Silva em 09/02/2022*/
+/*css criado para ser utilizado no App.js
+
+/*estilo geral*/
+*{
+  padding: 0;
+  margin: 0; /*sem margem*/
+  box-sizing: border-box; /*a borda nao ultrapassar a div atual*/
+  font-family: 'Open Sans', sans-serif; /*fonte do projeto*/
+}
+
+html, body, #root{
+
+    background-color: rgb(158, 155, 155);/*cor de fundo */
+    height: 100%; /*altura*/
+}

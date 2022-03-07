@@ -1,0 +1,24 @@
+/*Criado por Camila Silva em 17/02/2022*/
+/*Css para estilizar o Input.js*/
+
+.form_control {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+   
+  }
+  
+  .form_control label {
+    margin-bottom: 0.6em;
+    font-weight: bold;
+  }
+  
+  .form_control input {
+    padding: 0.7em;
+    border-radius: 0;
+    border: none;
+  }
+  
+  .form_control input::placeholder {
+    color: #e90808;
+  }

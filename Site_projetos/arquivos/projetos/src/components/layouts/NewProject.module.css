@@ -1,0 +1,21 @@
+/*css criado por Camila Silva em 16/02/2022*/
+/*layout da pagina NewProject*/
+
+.newproject_container{ 
+    width: 450px;
+    margin: 0 auto;
+    padding: 3em;
+}
+
+.newproject_container h1{
+    margin-bottom: 0.5em;
+    color:rgb(0, 0, 0);
+    text-align: center;
+    font-size: 3em;
+}
+
+.newproject_container p{
+    color: #000000;
+  font-weight: bold;
+    
+}

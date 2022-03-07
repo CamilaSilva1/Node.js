@@ -1,0 +1,16 @@
+/*Criado por Camila Silva em 18/02/2022*/
+/*Css para estilizar o SubmitBtn.js*/
+
+.btn{ 
+    padding: 0.2em 1em;
+    transition: .5s;
+    cursor: pointer;
+    width: 100px;
+    margin-top: 20px;
+    font-weight: bold;
+    margin-left: 6em;
+}
+
+.btn:hover{
+    background-color: rgb(235, 193, 88);
+}

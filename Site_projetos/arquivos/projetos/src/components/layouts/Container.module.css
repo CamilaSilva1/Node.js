@@ -1,0 +1,26 @@
+/*JS criado por Camila Silva em 09/02/2022*/
+/*Css de estilos*/
+
+.container{
+   
+    width: 1200px;
+    display: flex; /*posicionamento dos elementos*/
+    justify-content: space-between; /*passar os elementos de forma igual*/
+    margin: 0 auto;/*centralizar na tela*/
+    flex-wrap: wrap;/*quando ultrapassar o limite da tela, ter quabra de linha*/
+    
+    
+}
+
+.start{
+    justify-content: flex-start;/*colocar os conteudos no inicio*/
+}
+
+.column{
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.min_height{
+    min-height: 75%;
+}
