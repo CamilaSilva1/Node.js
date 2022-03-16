@@ -1,0 +1,14 @@
+/*Desenvolvido por Camila Silva em 15/03/2022*/
+/*css of the task*/
+
+.task_container{
+    background-color: rgb(146, 165, 182);
+    margin: 8px 0;
+    padding: 15px 20px;
+    display: flex;
+    border-radius: 5px;
+    justify-content: space-between;
+    color: rgb(0, 0, 0);
+    align-items: center;
+    
+}

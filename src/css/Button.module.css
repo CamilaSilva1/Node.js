@@ -1,0 +1,15 @@
+/*Desenvolvido por Camila Silva em 15/03/2022*/
+/*css button*/
+
+.add_task_button{
+    background-color: rgb(16, 141, 179);
+    height: 40px;
+    padding: 0px 10px;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+}
