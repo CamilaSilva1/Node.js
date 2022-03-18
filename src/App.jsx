@@ -22,9 +22,38 @@ const App = () => {
             id: '2',
             title: 'Work',
             completed: false,
+      },
+      {
+            id: '3',
+            title: 'Break',
+            completed: false,
       }
 
   ])
+
+  // function to change Completed in the taskList
+    const handleCompletedTaskClick = (taskId) => {
+
+        // accessing the task list
+          const newTasks = taskList.map(taskItem => {
+
+            // if the current id is the same as the previous id
+            // return all in the list and change completed to false or true
+                  if(taskItem.id === taskId)
+                      return {
+
+                        ...taskList,
+                        completed: !taskItem.completed
+
+                      }
+
+                      // else return the itens in the list
+                      return taskItem
+                          
+          })
+
+          setTasksList(newTasks)
+    }
 
 //   function for handle task addition
     const handleTaskAdd = (taskTitle) => {
@@ -48,9 +77,9 @@ const App = () => {
 
             <div className={styles.container}>
 
-                <AddTask handleTaskAdd={handleTaskAdd}/>
+                <AddTask handleTaskAdd={handleTaskAdd} />
 
-                <TasksRender taskItem={taskList} />
+                <TasksRender taskItem={taskList} handleCompletedTaskClick={handleCompletedTaskClick} />
 
             </div>        
 

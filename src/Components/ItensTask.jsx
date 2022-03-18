@@ -7,12 +7,20 @@ import React from 'react';
 //imports
 import styles from '../css/Task.module.css'
 
-const Itens = ({itens}) => {
+const Itens = ({itens, handleCompletedTaskClick}) => {
 
         return(
            
-               <div className={styles.task_container}>
-                       {itens.title}
+               <div className={styles.task_container} 
+                    style={itens.completed ? { borderLeft:'6px solid black'} : {}}>
+                       
+                        <div className={styles.task_title} 
+                             onClick={() => handleCompletedTaskClick(itens.id)}>
+
+                                {itens.title}
+
+                        </div>
+
                </div>
         )
 }

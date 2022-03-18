@@ -5,13 +5,14 @@
 import React from 'react'
 import ItensTask from './ItensTask'
 
-const TasksRender = ({ taskItem }) => {
+const TasksRender = ({ taskItem, handleCompletedTaskClick }) => {
 
         return(
              
                 <>
                     {taskItem.map((taskList) => (
-                        <ItensTask itens={taskList} />
+                        <ItensTask itens={taskList} 
+                            handleCompletedTaskClick={handleCompletedTaskClick} />
                     ))}
                 </>
         )
