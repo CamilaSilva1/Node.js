@@ -2,8 +2,7 @@
 /*adding a new button */
 
 //libraries
-import React from 'react';
-import {useState} from 'react'
+import React, {useState} from 'react'
 
 // imports
 import styles from '../css/AddTask.module.css'
@@ -12,7 +11,7 @@ import Button from './Button';
 const AddTask = ({handleTaskAdd}) => {
 
     // adding task with state
-    const [InputTask, setInputTask] = useState('');
+    const [InputTask, setInputTask] = useState("");
 
     //getting the value inside the input
     const handleInputChange = (e) => {

@@ -4,15 +4,18 @@
 //Libraries
 import React, { useState } from 'react'
 import {v4 as uuidv4} from 'uuid'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 import styles from './css/App.module.css'
-import TasksRender from './Components/TasksRender'
+import Tasks from './Components/Tasks'
 import AddTask from './Components/AddTask'
+import Header from './Components/Header'
+import TaskDetails from './Components/TaskDetails'
 
 const App = () => {
 
   //state of the tasks with array
-  const [taskList, setTasksList] = useState([{
+  const [tasks, setTasks] = useState([{
 
             id: '1',
             title: 'Study',
@@ -32,59 +35,86 @@ const App = () => {
   ])
 
   // function to change Completed in the taskList
-    const handleCompletedTaskClick = (taskId) => {
+    const handleTaskClick = (taskId) => {
 
         // accessing the task list
-          const newTasks = taskList.map(taskItem => {
+          const newTasks = tasks.map( (task) => {
 
             // if the current id is the same as the previous id
             // return all in the list and change completed to false or true
-                  if(taskItem.id === taskId)
+                  if(task.id === taskId)
                       return {
 
-                        ...taskList,
-                        completed: !taskItem.completed
+                        ...task,
+                        completed: !task.completed
 
-                      }
+                      };
 
                       // else return the itens in the list
-                      return taskItem
+                      return task
                           
-          })
+          });
 
-          setTasksList(newTasks)
-    }
+          setTasks(newTasks);
+    };
 
 //   function for handle task addition
     const handleTaskAdd = (taskTitle) => {
 
             // a newTask variable was created that will get all that is in task
-            const newTask = [...taskList, {
+            const newTasks = [...tasks, {
 
                 title: taskTitle,
                 id: uuidv4(),
                 completed: false,
 
-            }]
+            },
+          ];
 
             //modifying the tasks
-            setTasksList(newTask)
+            setTasks(newTasks);
+    };
+
+    // removing tasks
+    const handleTaskDeletion = (taskId) => {
+
+        const newTasks = tasks.filter(task => task.id !== taskId)
+
+            setTasks(newTasks)
     }
 
   return(
 
-        <>
+        <Router>
 
             <div className={styles.container}>
 
-                <AddTask handleTaskAdd={handleTaskAdd} />
+              <Header />
 
-                <TasksRender taskItem={taskList} handleCompletedTaskClick={handleCompletedTaskClick} />
+                <Route
 
-            </div>        
+                      path="/" exact render={() => (
 
-        </>
+                            <>
 
+                              <AddTask handleTaskAdd={handleTaskAdd} />
+
+                              <Tasks 
+                                  tasks={tasks} 
+                                      handleTaskClick={handleTaskClick}
+                                        handleTaskDeletion={handleTaskDeletion}
+                               />
+
+                            </>
+                      )}
+
+                />
+
+                <Route path="" exact render={TaskDetails} />
+
+              </div>   
+
+        </Router>
   )
 
 } 
