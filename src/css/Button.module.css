@@ -12,4 +12,10 @@
     font-weight: bold;
     cursor: pointer;
     border: none;
+    transition: all 0.5s ease;
+}
+
+.add_task_button:hover{
+    background-color: #444;
+    color: white;
 }

@@ -5,9 +5,22 @@
 import React from 'react'
 
 import Button from './Button'
-import styles from '../css/Task.module.css'
+import styles from '../css/TaskDetails.module.css'
+import { useParams } from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
+
 
 const TaskDetails = () => {
+
+    const params = useParams();
+
+    const navigate = useNavigate();
+
+    //handle when the user click the back button
+    const handleBackButton = () => {
+
+            navigate(-1);
+    }
 
     return(
 
@@ -15,16 +28,16 @@ const TaskDetails = () => {
             {/* button to back the main page */}
             <div className={styles.back_button_container}>
 
-                <Button> Voltar </Button>
+                <Button onClick={handleBackButton}> Voltar </Button>
 
             </div>
 
-            {/* main text  */}
+            {/* main text of the page */}
             <div className={styles.task_details_container}>
 
-                <p> Titulo </p>
+                <h2> {params.taskTitle} </h2>
 
-                <p> detalhes da tarefa selecionada </p>
+                <p> Detalhes da tarefa selecionada </p>
 
             </div>
         </>

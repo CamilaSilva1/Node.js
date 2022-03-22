@@ -1,0 +1,28 @@
+/*Developed by por Camila Silva em 22/03/2022*/
+/*css task details*/
+
+.task_details_container{
+    background-color: rgb(67, 70, 70);
+    margin: 15px 0;
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+}
+
+.task_details_container h2{
+    margin-bottom: 5px;
+    color: rgb(0, 0, 0);
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.back_button_container{
+    width: 30%;
+    margin-top: 10px;
+}
+
+.task_details_container p{
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+}

@@ -17,12 +17,19 @@
     cursor: pointer;
 }
 
+.buttons_container{
+    width: 30%;
+    display: flex;
+    justify-content: flex-end;
+}
+
 .remove_task_button, 
 .see_task_details_buttons{
     background-color: rgb(146, 165, 182);
     border: none;
     font-size: 24px;
     color: rgb(0, 0, 0);
+    margin: 0 5px;
 }
 
 

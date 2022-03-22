@@ -2,9 +2,10 @@
 /* Main page */
 
 //Libraries
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react' 
 import {v4 as uuidv4} from 'uuid'
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import axios from 'axios'
 
 import styles from './css/App.module.css'
 import Tasks from './Components/Tasks'
@@ -15,24 +16,23 @@ import TaskDetails from './Components/TaskDetails'
 const App = () => {
 
   //state of the tasks with array
-  const [tasks, setTasks] = useState([{
+  const [tasks, setTasks] = useState([]);
 
-            id: '1',
-            title: 'Study',
-            completed: false,
-      },
-      {
-            id: '2',
-            title: 'Work',
-            completed: false,
-      },
-      {
-            id: '3',
-            title: 'Break',
-            completed: false,
+        
+  // updating tasks when the component is build 
+  useEffect(() => {
+
+      const fetchTasks = async () => {
+
+        const {data} = await axios.get("https://jsonplaceholder.cypress.io/todos?_limit=10");
+
+        setTasks(data);
+
       }
 
-  ])
+      fetchTasks();
+
+  }, []);
 
   // function to change Completed in the taskList
     const handleTaskClick = (taskId) => {
@@ -84,37 +84,37 @@ const App = () => {
     }
 
   return(
+//navigation between screens using components
+    <Router>
 
-        <Router>
+    <div className={styles.container}>
 
-            <div className={styles.container}>
+      {/* title */}
+      <Header />
 
-              <Header />
+      {/*calling a bar to add a new task */}
+      <AddTask handleTaskAdd={handleTaskAdd} />
 
-                <Route
+        <Routes>
 
-                      path="/" exact render={() => (
+         <>
 
-                            <>
+              {/* show all the tasks */}
+              <Route path='/' element={  <Tasks 
+                                            tasks={tasks} 
+                                            handleTaskClick={handleTaskClick}
+                                            handleTaskDeletion={handleTaskDeletion} /> }/>
+       
+         </>
 
-                              <AddTask handleTaskAdd={handleTaskAdd} />
+              {/* show task details */}
+              <Route path='/:taskTitle' element={<TaskDetails />} />
 
-                              <Tasks 
-                                  tasks={tasks} 
-                                      handleTaskClick={handleTaskClick}
-                                        handleTaskDeletion={handleTaskDeletion}
-                               />
+        </Routes>
 
-                            </>
-                      )}
+      </div>   
 
-                />
-
-                <Route path="" exact render={TaskDetails} />
-
-              </div>   
-
-        </Router>
+  </Router>
   )
 
 } 

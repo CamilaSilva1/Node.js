@@ -4,11 +4,21 @@
 //libraries
 import React from 'react';
 import {CgClose, CgInfo} from 'react-icons/cg'
+import { useNavigate } from 'react-router-dom'
 
 //imports
 import styles from '../css/Task.module.css'
 
+
 const Task = ({task, handleTaskClick, handleTaskDeletion}) => {
+
+        const navigate = useNavigate(); 
+
+        // handle when the user click in some task
+        const handleTaskDetailsClick = () => {
+
+                navigate(`/${task.title}`);
+        }
 
         return(
            
@@ -34,7 +44,8 @@ const Task = ({task, handleTaskClick, handleTaskDeletion}) => {
 
                                 {/* button to see task details */}
                                 <button className={styles.see_task_details_buttons}
-                                        >
+                                                onClick={handleTaskDetailsClick} > 
+                                        
                                         
                                         <CgInfo />
                                         
