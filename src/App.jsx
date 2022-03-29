@@ -5,7 +5,7 @@
 import React, { useState, useEffect } from 'react' 
 import {v4 as uuidv4} from 'uuid'
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
-import axios from 'axios'
+
 
 import styles from './css/App.module.css'
 import Tasks from './Components/Tasks'
@@ -20,7 +20,7 @@ const App = () => {
 
         
   // updating tasks when the component is build 
-  useEffect(() => {
+  /**useEffect(() => {
 
       const fetchTasks = async () => {
 
@@ -32,7 +32,24 @@ const App = () => {
 
       fetchTasks();
 
-  }, []);
+  }, []);*/
+
+  useEffect(() => {
+
+          fetch('http://localhost:5000/Tasklist', {
+
+              method: 'GET',
+              headers: {
+
+                    'Content-Type': 'application/json',
+              },
+          }).then((resp) => resp.json())
+            .then((data) => {
+
+                  setTasks(data);
+
+            }).catch((err) => console.log(err))        
+  }, [])
 
   // function to change Completed in the taskList
     const handleTaskClick = (taskId) => {
