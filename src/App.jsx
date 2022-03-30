@@ -18,24 +18,10 @@ const App = () => {
   //state of the tasks with array
   const [tasks, setTasks] = useState([]);
 
-        
-  // updating tasks when the component is build 
-  /**useEffect(() => {
-
-      const fetchTasks = async () => {
-
-        const {data} = await axios.get("https://jsonplaceholder.cypress.io/todos?_limit=10");
-
-        setTasks(data);
-
-      }
-
-      fetchTasks();
-
-  }, []);*/
-
+  //getting api (json) and changing to data
   useEffect(() => {
 
+          // api request
           fetch('http://localhost:5000/Tasklist', {
 
               method: 'GET',
@@ -46,6 +32,7 @@ const App = () => {
           }).then((resp) => resp.json())
             .then((data) => {
 
+              //showing the data 
                   setTasks(data);
 
             }).catch((err) => console.log(err))        

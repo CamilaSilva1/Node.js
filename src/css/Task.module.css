@@ -10,12 +10,10 @@
     justify-content: space-between;
     color: rgb(0, 0, 0);
     align-items: center;
+    cursor: pointer;
     
 }
 
-.task-title {
-    cursor: pointer;
-}
 
 .buttons_container{
     width: 30%;
@@ -30,6 +28,7 @@
     font-size: 24px;
     color: rgb(0, 0, 0);
     margin: 0 5px;
+    cursor: pointer;
 }
 
 
