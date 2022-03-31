@@ -39,7 +39,7 @@ const App = () => {
   }, [])
 
   // function to change Completed in the taskList
-    const handleTaskClick = (taskId) => {
+   /**  const handleTaskClick = (taskId) => {
 
         // accessing the task list
           const newTasks = tasks.map( (task) => {
@@ -60,13 +60,31 @@ const App = () => {
           });
 
           setTasks(newTasks);
-    };
+    };*/
 
 //   function for handle task addition
     const handleTaskAdd = (taskTitle) => {
 
+      fetch('http://localhost:5000/Tasklist', {
+
+                    method: 'POST',
+                    headers: {
+
+                        'Content-type': 'application/json',
+
+                    },
+                    body: JSON.stringify(taskTitle),
+                })
+                .then((resp) => resp.json())
+                .then((data) => {
+
+                  console.log(taskTitle)
+                    
+                }).catch((err) => console.log(err))
+            }
+
             // a newTask variable was created that will get all that is in task
-            const newTasks = [...tasks, {
+           /**  const newTasks = [...tasks, {
 
                 title: taskTitle,
                 id: uuidv4(),
@@ -76,16 +94,15 @@ const App = () => {
           ];
 
             //modifying the tasks
-            setTasks(newTasks);
-    };
+            setTasks(newTasks);*/
 
     // removing tasks
-    const handleTaskDeletion = (taskId) => {
+    /**const handleTaskDeletion = (taskId) => {
 
         const newTasks = tasks.filter(task => task.id !== taskId)
 
             setTasks(newTasks)
-    }
+    }*/
 
   return(
 //navigation between screens using components
@@ -106,8 +123,10 @@ const App = () => {
               {/* show all the tasks */}
               <Route path='/' element={  <Tasks 
                                             tasks={tasks} 
-                                            handleTaskClick={handleTaskClick}
-                                            handleTaskDeletion={handleTaskDeletion} /> }/>
+                                            //handleTaskClick={handleTaskClick}
+                                            //handleTaskDeletion={handleTaskDeletion} 
+                                            /> }
+                                            />
        
          </>
 
