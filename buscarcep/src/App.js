@@ -9,7 +9,8 @@ import api from './services/api';
 
 function App() {
 
-  const [input, setInput] = useState(' ');
+  const [input, setInput] = useState('');
+  const [cep, setCep] = useState({});
 
   async function handleSearch(){
 
@@ -22,10 +23,13 @@ function App() {
 
         const response = await api.get(`${input}/json`);
         console.log(response.data);
+        setCep(response.data);
+        setInput("");
         
       }catch{
 
         alert("Erro ao buscar CEP");
+        setInput("");
 
       }
   }
@@ -46,15 +50,22 @@ function App() {
 
         </div>
 
-        <main className="main-content">
-          
-            <h2> CEP: 15296184 </h2>
-            <span> Complemento: Algum complemento </span>
-            <span> Vila Rosa </span>
-            <span> Ourinhos - SP </span>
+       
+        {Object.keys(cep).length > 0 && (
 
-        </main>
+              <main className="main-content">
+              
+                <h2> CEP: {cep.cep} </h2>
+                
+                <span>Rua: {cep.logradouro} </span>
+                <span> Complemento: {cep.complemento} </span>
+                <span> Bairro: {cep.bairro} </span>
+                <span> {cep.localidade} - {cep.uf} </span>
 
+              </main>
+
+        )}
+           
     </div>
   );
 }
