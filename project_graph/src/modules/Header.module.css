@@ -1,0 +1,36 @@
+/* Created by Camila Silva */
+/* Since 10/06/2022 */
+/* Application styling */
+
+/* importing font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+/* responsive screen > 768px */
+@media screen and (min-width: 768px){
+    /* bar that will be on the header top */
+    .barTop{
+        height: 60px;
+        background-color: #aca9afcc;
+    }
+
+    /* The text that will be on the header will have a margin left  */
+    .header{
+        margin-left: 30px;
+        font-family: 'Roboto', sans-serif;
+    }
+    
+    /* -- adjusting each text that will be on the header -- */
+
+    /* title */
+    .header h1{
+        font-size: 34px;
+        color: #463d57;
+        font-weight: bold;
+        margin-bottom: 2px;
+    }
+    
+    /* caption */
+    .header p{
+        color: #47454ba9;
+    }
+}

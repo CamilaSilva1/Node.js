@@ -1,0 +1,28 @@
+/* Created by Camila Silva */
+/* Since 13/06/2022 */
+/* Application styling */
+
+/* importing font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+/* responsive screen > 768px */
+@media screen and (min-width: 768px){
+    /* the bar graph will have a width of 550px */
+    /* A rounded border at 10px */
+    /* A 30px screen edge offset */
+    /* The elements inside the graphic will have a distance of 30px in total on the sides */
+    /* each graphic will have a black shadow slightly */
+    /* Background color */
+    /* All text in the chart will be in Roboto font */
+    .scatter{
+        display: flex;
+        justify-content: center;
+        width: 580px;
+        border-radius: 10px;
+        margin: 30px;
+        padding: 20px 10px;
+        box-shadow: 3px 3px 3px #00000091;
+        background-color: #f0e5eee3;
+        font-family: 'Roboto', sans-serif;
+    }
+}

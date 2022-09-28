@@ -1,0 +1,22 @@
+/* Created by Camila Silva */
+/* Since 13/06/2022 */
+/* Application styling */
+
+/* importing font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+/* responsive screen > 768px */
+@media screen and (min-width: 768px){
+    /* adjusting global body page settings */
+    body{
+        font-family: 'Roboto', sans-serif;
+        background-color: #aca9af98;
+    }
+
+    /* adjusting the space beetween the charts */
+    .container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
