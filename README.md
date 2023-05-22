@@ -14,4 +14,6 @@ Back-end totalmente desenvolvido com Prisma, node.js e zod
     --axios
     --zod
     --prisma
+    --fastify
+   
     
